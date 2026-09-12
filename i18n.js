@@ -57,6 +57,12 @@ Prioritise with evidence|प्रमाण से प्राथमिकत�
 Review the contributing signals and seek expert validation.|संकेतों के कारण देखें और विशेषज्ञ की पुष्टि लें।|कारणीभूत संकेत पाहा आणि तज्ञांची पडताळणी घ्या.|Signals review karein aur expert validation lein.
 Return and record|वापस जाकर दर्ज करें|पुन्हा भेट देऊन नोंदवा|Wapas jaakar record karein
 Compare symptom share before closing the action.|कार्य बंद करने से पहले लक्षण वाले पौधों का अनुपात तुलना करें।|कृती बंद करण्यापूर्वी लक्षणग्रस्त रोपांच्या प्रमाणाची तुलना करा.|Action close karne se pehle symptom share compare karein.
+Take leaf photo|पत्ती का फोटो लें|पानाचा फोटो घ्या|Patti ka photo lein
+Clear photo in daylight|दिन के उजाले में साफ फोटो|दिवसाच्या प्रकाशात स्पष्ट फोटो|Daylight me saaf photo
+AI triage|एआई जाँच|एआय तपासणी|AI jaanch
+Instant crop risk check|फसल जोखिम की तुरंत जाँच|पीक जोखीम त्वरित तपासणी|Fasal risk ki turant jaanch
+Expert review|विशेषज्ञ समीक्षा|तज्ञ समीक्षा|Expert samiksha
+Agronomist recommendations|कृषि विशेषज्ञ की सलाह|कृषी तज्ञांचा सल्ला|Agronomist ki salah
 Device-local prototype. Expert portal records are not sent to a real extension service.|उपकरण-स्थानीय नमूना। रिकॉर्ड वास्तविक कृषि विस्तार सेवा को नहीं भेजे जाते।|उपकरणावरील नमुना. नोंदी प्रत्यक्ष कृषी विस्तार सेवेकडे पाठवल्या जात नाहीत.|Local prototype. Records real extension service ko send nahi hote.
 sample symptomatic|नमूने में लक्षण|नमुन्यात लक्षणे|sample mein symptoms
 trap catch|ट्रैप में कीट|सापळ्यातील कीटक|trap catch
@@ -340,6 +346,10 @@ Review uncertain farmer cases, add practical advice and generate a report.|अ�
 Human-in-the-loop|विशेषज्ञ भागीदारी|तज्ञ सहभाग|Human-in-the-loop
 Case queue|मामला सूची|प्रकरण रांग|Case queue
 Select a case to review.|समीक्षा के लिए मामला चुनें।|समीक्षेसाठी प्रकरण निवडा.|Review ke liye case chunein.
+Delete case|मामला हटाएं|प्रकरण हटवा|Delete case
+Remove case|मामला हटाएं|प्रकरण काढा|Remove case
+Delete this case from the queue? This cannot be undone.|क्या आप इस मामले को सूची से हटाना चाहते हैं? इसे वापस नहीं लाया जा सकेगा।|तुम्हाला हे प्रकरण रांगेतून काढायचे आहे का? ही कृती पूर्ववत केली जाऊ शकत नाही.|Delete this case from the queue? This cannot be undone.
+Case removed from queue.|मामला सूची से हटा दिया गया।|प्रकरण रांगेतून काढण्यात आले.|Case removed from queue.
 Ask Sirib Rakshak|रक्षक से पूछें|रक्षकला विचारा|Rakshak se poochein
 Sirib Rakshak|रक्षक सहायक|रक्षक सहाय्यक|Rakshak assistant
 Crop + weather assistant|फसल + मौसम सहायक|पीक + हवामान सहाय्यक|Crop + weather assistant
@@ -695,6 +705,10 @@ Start a review request|समीक्षा का अनुरोध शुर
 Add a leaf photo and describe what changed. A report helps your expert review the case.|पत्ती की फोटो जोड़ें और बदलाव बताएँ। रिपोर्ट विशेषज्ञ को मामला समझने में मदद करती है।|पानाचा फोटो जोडा व बदल सांगा. अहवाल तज्ज्ञांना प्रकरण समजण्यास मदत करतो.|Add a leaf photo and describe what changed. A report helps your expert review the case.
 Download detailed report|विस्तृत रिपोर्ट डाउनलोड करें|सविस्तर अहवाल डाउनलोड करा|Download detailed report
 Download spreadsheet|स्प्रेडशीट डाउनलोड करें|स्प्रेडशीट डाउनलोड करा|Download spreadsheet
+Generate PDF report|PDF रिपोर्ट तैयार करें|PDF अहवाल तयार करा|Generate PDF report
+Download PDF report|PDF रिपोर्ट डाउनलोड करें|PDF अहवाल डाउनलोड करा|Download PDF report
+Generating PDF report…|PDF रिपोर्ट तैयार हो रही है…|PDF अहवाल तयार होत आहे…|Generating PDF report...
+Print or save as PDF|प्रिंट या PDF में सहेजें|प्रिंट किंवा PDF मध्ये जतन करा|Print ya PDF me save karein
 Not recorded|दर्ज नहीं|नोंद नाही|Not recorded
 Crop photo|फसल की फोटो|पिकाचा फोटो|Crop photo
 `);
@@ -712,6 +726,34 @@ Soil type|मिट्टी का प्रकार|मातीचा प्
 Irrigation type|सिंचाई का प्रकार|सिंचनाचा प्रकार|Irrigation type
 Initial notes|प्रारंभिक विवरण|सुरुवातीची नोंद|Initial notes
 Link to an existing saved field|सहेजे गए खेत से जोड़ें|जतन केलेल्या शेताशी जोडा|Link to an existing saved field
+Healthy|स्वस्थ|निरोगी|Healthy
+Normal|सामान्य|सामान्य|Normal
+Issue detected|लक्षण पाए गए|लक्षणे आढळली|Issue mila
+API key required|एपीआई कुंजी आवश्यक|API की आवश्यक|API key chahiye
+Ready for leaf scan|पत्ती स्कैन के लिए तैयार|पानाच्या स्कॅनसाठी तयार|Leaf scan ke liye ready
+Voice Advisory|बोलकर पूछें|बोलून विचारा|Voice Advisory
+Listening… speak now|सुन रहा हूँ… बोलिए|ऐकत आहे… आता बोला|Sun raha hoon… boliye
+Voice recognition not supported|इस ब्राउज़र में वॉइस सपोर्ट नहीं है|या ब्राउझरमध्ये व्हॉइस सपोर्ट नाही|Voice support nahi mila
+Tap to speak|बोलने के लिए दबाएँ|बोलण्यासाठी दाबा|Bolne ke liye dabayein
+Stop listening|सुनना बंद करें|ऐकणे थांबवा|Stop listening
+Market Price|बाज़ार भाव|बाजार भाव|Market Price
+Mandi Bhav|मंडी भाव|बाजार भाव|Mandi Bhav
+Live Mandi Rates|लाइव मंडी भाव|थेट बाजार भाव|Live Mandi Rates
+Modal Price|औसत भाव|सरासरी भाव|Modal Price
+Monitored Mandis|निगरानी वाली मंडियां|निरीक्षणातील बाजार|Monitored Mandis
+Active Commodities|सक्रिय फसलें|सक्रिय पिके|Active Commodities
+Top Mandi Gainer|शीर्ष बढ़त वाली फसल|सर्वाधिक तेजीचे पीक|Top Mandi Gainer
+MSP Benchmark|MSP समर्थन मूल्य|हमीभाव संदर्भ|MSP Benchmark
+Search Mandi or Crop|मंडी या फसल का नाम खोजें|बाजार किंवा पिकाचे नाव शोधा|Search Mandi or Crop
+All States|सभी राज्य|सर्व राज्ये|All States
+Farmer Income Calculator|किसान उपज आय गणक|शेतकरी उत्पन्न गणक|Farmer Income Calculator
+Quantity|मात्रा|प्रमाण|Quantity
+Mandi Rate|मंडी भाव|बाजार दर|Mandi Rate
+Total Expected Income|कुल अनुमानित आय|एकूण अंदाजे उत्पन्न|Total Expected Income
+Govt MSP Comparison|सरकारी MSP तुलना|शासकीय हमीभाव तुलना|Govt MSP Comparison
+Loading live APMC Mandi rates…|लाइव मंडी भाव लोड हो रहे हैं…|थेट बाजार भाव लोड होत आहेत…|Loading live APMC Mandi rates…
+No Mandi rates match your search|आपकी खोज से कोई मंडी भाव नहीं मिला|तुमच्या शोधानुसार कोणतेही बाजार भाव आढळले नाहीत|No Mandi rates match your search
+Try selecting 'All Crops' or clearing the search box.|'सभी फसलें' चुनें या खोज बॉक्स साफ़ करें।|'सर्व पिके' निवडा किंवा शोध बॉक्स साफ करा.|Try selecting 'All Crops' or clearing the search box.
 `);
 let pattern;
 function compile(){pattern=new RegExp(Object.keys(entries).sort((a,b)=>b.length-a.length).map(s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'g');}
