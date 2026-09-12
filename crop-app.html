@@ -74,7 +74,7 @@
         <span>🩺</span> <span data-i18n="expert">Expert</span>
       </button>
       <button class="nav-btn" data-page="official">
-        <span>🗺️</span> <span>Hotspots</span>
+        <span>🗺️</span> <span data-i18n="Location">Location</span>
       </button>
     </nav>
     <div class="top-actions">
@@ -222,20 +222,40 @@
       </div>
     </section>
 
-    <!-- OFFICIAL -->
+    <!-- LOCATION / FIELD SURVEILLANCE -->
     <section id="officialPage" class="page">
       <div class="section-wrap">
-        <div class="section-head"><div><p class="eyebrow">EXTENSION / DEPARTMENT VIEW</p><h2>Crop health hotspots</h2><p>Confirmed cases, field-risk signals and response status in one map.</p></div><span class="status-pill"> District view</span></div>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" data-i18n="locationEyebrow">FIELD SURVEILLANCE &amp; LOCATION</p>
+            <h2 data-i18n="locationTitle">Crop health locations</h2>
+            <p data-i18n="locationSubtitle">Confirmed cases, field-risk signals and response status in one map.</p>
+          </div>
+          <span class="status-pill ok">● District Location Feed</span>
+        </div>
         <div class="official-grid">
           <div class="card map-card">
-            <div class="map-toolbar"><select id="hotspotFilter"><option value="all">All signals</option><option value="high">High risk</option><option value="pending">Awaiting expert</option><option value="reviewed">Reviewed</option></select></div>
-            <div id="hotspotMap"><div id="mapLoading" class="map-loading">Loading field hotspot map…</div></div>
+            <div class="map-toolbar">
+              <select id="hotspotFilter" class="map-filter-select" aria-label="Filter locations">
+                <option value="all">🌐 All signals / सभी लोकेशन</option>
+                <option value="high">🚨 High risk / उच्च जोखिम</option>
+                <option value="pending">⏳ Awaiting expert / विशेषज्ञ समीक्षा लंबित</option>
+                <option value="reviewed">✅ Reviewed / समीक्षा संपन्न</option>
+              </select>
+              <div class="map-legend-strip">
+                <span class="legend-pill high" data-filter="high" role="button" tabindex="0">● High risk</span>
+                <span class="legend-pill pending" data-filter="pending" role="button" tabindex="0">● Awaiting expert</span>
+                <span class="legend-pill reviewed" data-filter="reviewed" role="button" tabindex="0">● Reviewed</span>
+                <span class="legend-pill gps" data-filter="all" role="button" tabindex="0">● Live GPS</span>
+              </div>
+            </div>
+            <div id="hotspotMap"><div id="mapLoading" class="map-loading">Loading field location map…</div></div>
           </div>
           <div class="card official-stats">
-            <div class="stat-row"><span>Cases logged</span><b id="officialCases">0</b></div>
-            <div class="stat-row"><span>High-risk cases</span><b id="officialHighRisk">0</b></div>
-            <div class="stat-row"><span>Awaiting expert</span><b id="officialPending">0</b></div>
-            <div class="stat-row"><span>Reviewed</span><b id="officialReviewed">0</b></div>
+            <div class="stat-row clickable-stat" data-filter="all" title="Click to view all signals"><span>Cases logged</span><b id="officialCases">0</b></div>
+            <div class="stat-row clickable-stat" data-filter="high" title="Click to view high-risk cases"><span>High-risk cases</span><b id="officialHighRisk" style="color:#b71c1c;">0</b></div>
+            <div class="stat-row clickable-stat" data-filter="pending" title="Click to view awaiting expert cases"><span>Awaiting expert</span><b id="officialPending" style="color:#e65100;">0</b></div>
+            <div class="stat-row clickable-stat" data-filter="reviewed" title="Click to view reviewed cases"><span>Reviewed</span><b id="officialReviewed" style="color:#2e7d32;">0</b></div>
             <div class="learning-box"><b>Learning loop</b><p>Expert confirmations are stored with the original assessment so future versions can be evaluated against real field outcomes.</p>
               <div class="learning-mini"><span><b id="learningConfirmed">0</b><small>reviewed</small></span><span><b id="learningPending">0</b><small>pending</small></span><span><b id="learningRate">--</b><small>review rate</small></span></div>
               <button id="exportLearning" class="btn btn-light full">Export feedback CSV</button></div>
@@ -285,108 +305,108 @@
 
     <!-- MARKET PRICE / MANDI BHAV -->
     <section id="marketPage" class="page">
-      <div class="section-wrap market-wrap">
-        <!-- Hero Header -->
-        <div class="market-hero-card">
-          <div class="market-hero-content">
-            <div class="market-live-pill">
-              <span class="live-dot-pulse"></span>
-              <span data-i18n="Live Mandi Rates">Live Mandi Rates</span>
-              <span class="source-tag">Agmarknet / APMC</span>
-            </div>
-            <h1 class="market-title">🌾 <span data-i18n="Market Price">Market Price</span> <small>&amp; मंडी भाव</small></h1>
-            <p class="market-sub">Official APMC benchmark prices, daily modal rates, volume arrivals, and selling advisory for Indian farmers.</p>
+      <div class="section-wrap">
+        <!-- Section Header matching Dashboard -->
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" data-i18n="eyebrowMarket">APMC MANDI INTELLIGENCE</p>
+            <h2 data-i18n="marketTitle">Today's Mandi Bhav.</h2>
+            <p data-i18n="marketSubtitle">Official daily modal rates, volume arrivals, and selling advisories reported across major Indian APMCs.</p>
           </div>
-          <div class="market-hero-actions">
-            <button id="marketRefreshBtn" class="btn btn-light market-refresh-btn" type="button" title="Refresh rates">
-              <span class="refresh-icon">🔄</span> <span>Refresh Rates</span>
+          <div class="head-actions">
+            <span class="status-pill ok">● Live APMC Feed</span>
+            <button id="marketRefreshBtn" class="btn btn-light" type="button">
+              <span>🔄</span> <span data-i18n="Refresh">Refresh rates</span>
             </button>
           </div>
         </div>
 
-        <!-- Quick Stats Row -->
-        <div id="marketStatsRow" class="market-stats-grid"></div>
+        <!-- Metric Grid matching website standard -->
+        <div id="marketStatsRow" class="metric-grid"></div>
 
-        <!-- Controls: Search & Filters -->
-        <div class="market-controls-card">
-          <div class="market-search-row">
+        <!-- Filter & Search Card -->
+        <div class="card market-filter-card">
+          <div class="market-filter-top">
             <div class="market-search-box">
-              <span class="search-lens">🔍</span>
-              <input id="marketSearchInput" type="text" placeholder="Search crop or mandi (e.g. Nashik Tomato, प्याज, गेहूं)..." aria-label="Search Mandi or Crop">
+              <input id="marketSearchInput" class="search-input" placeholder="🔍 फसल या मंडी का नाम खोजें (उदा. प्याज, टमाटर, लासलगांव, इंदौर, गेहूं)..." aria-label="Search Mandi or Crop">
             </div>
             <div class="market-state-select-wrap">
-              <label for="marketStateFilter">📍 <span>State</span>:</label>
-              <select id="marketStateFilter" aria-label="Select State">
-                <option value="all">All States / सभी राज्य</option>
-                <option value="Maharashtra">Maharashtra (महाराष्ट्र)</option>
-                <option value="Madhya Pradesh">Madhya Pradesh (मध्य प्रदेश)</option>
-                <option value="Uttar Pradesh">Uttar Pradesh (उत्तर प्रदेश)</option>
-                <option value="Punjab">Punjab (पंजाब)</option>
-                <option value="Haryana">Haryana (हरियाणा)</option>
-                <option value="Rajasthan">Rajasthan (राजस्थान)</option>
-                <option value="Gujarat">Gujarat (गुजरात)</option>
+              <select id="marketStateFilter" class="market-select" aria-label="Select State">
+                <option value="all">🇮🇳 सभी राज्य (All States)</option>
+                <option value="Maharashtra">महाराष्ट्र (Maharashtra)</option>
+                <option value="Madhya Pradesh">मध्य प्रदेश (Madhya Pradesh)</option>
+                <option value="Uttar Pradesh">उत्तर प्रदेश (Uttar Pradesh)</option>
+                <option value="Punjab">पंजाब (Punjab)</option>
+                <option value="Haryana">हरियाणा (Haryana)</option>
+                <option value="Rajasthan">राजस्थान (Rajasthan)</option>
+                <option value="Gujarat">गुजरात (Gujarat)</option>
               </select>
             </div>
           </div>
-          <div id="marketCategoryPills" class="market-pills-row"></div>
+          <div id="marketCategoryPills" class="market-category-strip"></div>
         </div>
 
-        <!-- Mandi Cards Grid -->
-        <div id="mandiGrid" class="market-cards-grid"></div>
+        <!-- Farmer-friendly Mandi Cards Grid -->
+        <div id="mandiGrid" class="market-farmer-grid"></div>
 
-        <!-- MSP Benchmark Comparison Section -->
-        <div class="market-msp-section">
-          <div class="section-head-simple">
+        <!-- MSP Benchmark Section matching Dashboard style -->
+        <div class="card msp-overview-card">
+          <div class="card-head">
             <div>
-              <p class="eyebrow">BENCHMARK COMPARISON</p>
-              <h2>⚖️ <span data-i18n="Govt MSP Comparison">Govt MSP Comparison</span> (2024-25)</h2>
-              <p>Compare daily open mandi prices against Government Minimum Support Price (न्यूनतम समर्थन मूल्य) to secure fair returns.</p>
+              <p class="eyebrow" style="margin-bottom:4px;">GOVERNMENT SUPPORT PRICE</p>
+              <h3 data-i18n="Govt MSP Comparison">Govt MSP Comparison (2024-25)</h3>
             </div>
+            <span class="status-pill ok">100% Minimum Floor Benchmark</span>
           </div>
-          <div id="mspComparisonGrid" class="msp-cards-grid"></div>
+          <p class="muted" style="font-size:13px; margin:0 0 16px;">Compare open APMC auction rates against official Minimum Support Price (न्यूनतम समर्थन मूल्य) to ensure fair returns.</p>
+          <div id="mspComparisonGrid" class="crop-grid msp-grid"></div>
         </div>
 
-        <!-- Farmer Income & Unit Calculator -->
-        <div class="market-calculator-card">
-          <div class="calc-header">
-            <span class="calc-icon">🧮</span>
+        <!-- Farmer Income Calculator matching Form card -->
+        <div class="card calc-container-card">
+          <div class="card-head">
             <div>
-              <h3><span data-i18n="Farmer Income Calculator">Farmer Income Calculator</span></h3>
-              <p>Calculate your estimated earnings from quintals or bags into total rupees (₹) and per-kg net price.</p>
+              <p class="eyebrow" style="margin-bottom:4px;">HARVEST VALUATION</p>
+              <h3 data-i18n="Farmer Income Calculator">Farmer Income Calculator</h3>
             </div>
+            <span class="status-pill">Quick Yield Converter</span>
           </div>
-          <div class="calc-grid">
-            <div class="calc-inputs">
+          <p class="muted" style="font-size:13px; margin:0 0 18px;">Convert your harvest weight (Quintal, Boras, Tonnes) into total revenue and net earnings.</p>
+
+          <div class="calc-form-layout">
+            <div class="calc-inputs-side">
               <div class="field">
-                <span><b data-i18n="Quantity">Quantity</b></span>
-                <div class="calc-input-group">
-                  <input id="calcQty" type="number" min="0" step="0.5" value="25" placeholder="e.g. 25">
+                <span><b data-i18n="Quantity">Harvest Quantity</b></span>
+                <div class="calc-split-input">
+                  <input id="calcQty" type="number" min="0" step="0.5" value="25" placeholder="Quantity">
                   <select id="calcUnit">
-                    <option value="quintal">Quintals (क्विंटल - 100 kg)</option>
-                    <option value="bag50">Bags (बोरी - 50 kg)</option>
-                    <option value="ton">Tonnes (टन - 1000 kg)</option>
-                    <option value="kg">Kilograms (किलो)</option>
+                    <option value="quintal">Quintals (100 kg)</option>
+                    <option value="bag50">Bora / Bags (50 kg)</option>
+                    <option value="ton">Tonnes (1000 kg)</option>
+                    <option value="kg">Kilograms</option>
                   </select>
                 </div>
               </div>
               <div class="field">
-                <span><b data-i18n="Mandi Rate">Mandi Rate</b> (₹ / क्विंटल)</span>
+                <span><b data-i18n="Mandi Rate">Auction / Mandi Rate</b> (₹ / Quintal)</span>
                 <input id="calcRate" type="number" min="0" step="10" value="2450" placeholder="e.g. 2450">
               </div>
             </div>
-            <div class="calc-outputs">
-              <div class="calc-result-box primary">
-                <small data-i18n="Total Expected Income">Total Expected Income</small>
+
+            <div class="calc-results-side">
+              <div class="metric calc-total-metric">
+                <span data-i18n="Total Expected Income">TOTAL ESTIMATED VALUE</span>
                 <strong id="calcTotalResult">₹61,250</strong>
+                <p>Gross harvest valuation before cess & transport</p>
               </div>
-              <div class="calc-sub-results">
-                <div class="calc-sub-box">
-                  <small>Rate per kg</small>
+              <div class="calc-sub-grid">
+                <div class="calc-mini-stat">
+                  <span class="muted">Effective Rate / kg</span>
                   <strong id="calcKgResult">₹24.50 / kg</strong>
                 </div>
-                <div class="calc-sub-box">
-                  <small>Estimated Net (after 1.5% mandi cess)</small>
-                  <strong id="calcNetResult" class="text-success">₹60,331</strong>
+                <div class="calc-mini-stat">
+                  <span class="muted">Net in Hand (after ~1.5% APMC cess)</span>
+                  <strong id="calcNetResult" class="text-gain">₹60,331</strong>
                 </div>
               </div>
             </div>
